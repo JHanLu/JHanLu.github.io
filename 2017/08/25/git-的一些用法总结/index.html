@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="卢剑瀚的blog">
 <meta property="og:description" content="git 的一些用法总结今天在使用GitHub时，又发现了一些平时比较少用到的命令，在这里做下总结 1.关于.gitnore 文件gitignore 配置文件用于配置不需要加入版本管理的文件，配置好该文件可以为我们的版本管理带来很大的便利，在本地可能有一个非常庞大的node_modules目录，在上传时非常耗时，因此我们只需上传package.json文件，再在需要时进行安装即可 一个简单的.git">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-25T07:11:30.197Z">
+<meta property="og:updated_time" content="2017-08-25T07:21:44.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git 的一些用法总结">
 <meta name="twitter:description" content="git 的一些用法总结今天在使用GitHub时，又发现了一些平时比较少用到的命令，在这里做下总结 1.关于.gitnore 文件gitignore 配置文件用于配置不需要加入版本管理的文件，配置好该文件可以为我们的版本管理带来很大的便利，在本地可能有一个非常庞大的node_modules目录，在上传时非常耗时，因此我们只需上传package.json文件，再在需要时进行安装即可 一个简单的.git">
@@ -332,9 +332,8 @@
       
         <h1 id="git-的一些用法总结"><a href="#git-的一些用法总结" class="headerlink" title="git 的一些用法总结"></a>git 的一些用法总结</h1><p>今天在使用GitHub时，又发现了一些平时比较少用到的命令，在这里做下总结</p>
 <h2 id="1-关于-gitnore-文件"><a href="#1-关于-gitnore-文件" class="headerlink" title="1.关于.gitnore 文件"></a>1.关于.gitnore 文件</h2><p>gitignore 配置文件用于配置不需要加入版本管理的文件，配置好该文件可以为我们的版本管理带来很大的便利，在本地可能有一个非常庞大的node_modules目录，在上传时非常耗时，因此我们只需上传package.json文件，再在需要时进行安装即可</p>
-<p>一个简单的.gitignore例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.gitignore</div><div class="line">node_modules</div><div class="line">package-lock.json</div></pre></td></tr></table></figure></p>
-<p>.gitignore无效，不能过滤某些文件</p>
-<p>现象：<br>在.gitignore添加file1文件，以过滤该文件，但是通过Git status查看仍显示file1文件的状态。</p>
+<h3 id="一个简单的-gitignore例子"><a href="#一个简单的-gitignore例子" class="headerlink" title="一个简单的.gitignore例子"></a>一个简单的.gitignore例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.gitignore</div><div class="line">node_modules</div><div class="line">package-lock.json</div></pre></td></tr></table></figure>
+<h3 id="gitignore无效，不能过滤某些文件"><a href="#gitignore无效，不能过滤某些文件" class="headerlink" title=".gitignore无效，不能过滤某些文件"></a>.gitignore无效，不能过滤某些文件</h3><p>现象：<br>在.gitignore添加file1文件，以过滤该文件，但是通过Git status查看仍显示file1文件的状态。</p>
 <p>原因：<br>在git库中已存在了这个文件，之前push提交过该文件。<br>.gitignore文件只对还没有加入版本管理的文件起作用，如果之前已经用git把这些文件纳入了版本库，就不起作用了</p>
 <p>解决：<br>需要在git库中删除该文件，并更新。<br>然后再次git status查看状态，file1文件不再显示状态。</p>
 <p>1.1 仅仅删除暂存区里的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git rm --cache 文件名</div></pre></td></tr></table></figure></p>
@@ -508,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-的一些用法总结"><span class="nav-number">1.</span> <span class="nav-text">git 的一些用法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于-gitnore-文件"><span class="nav-number">1.1.</span> <span class="nav-text">1.关于.gitnore 文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-git-pull-amp-amp-git-remote"><span class="nav-number">1.2.</span> <span class="nav-text">2.git pull && git remote</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-的一些用法总结"><span class="nav-number">1.</span> <span class="nav-text">git 的一些用法总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于-gitnore-文件"><span class="nav-number">1.1.</span> <span class="nav-text">1.关于.gitnore 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的-gitignore例子"><span class="nav-number">1.1.1.</span> <span class="nav-text">一个简单的.gitignore例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitignore无效，不能过滤某些文件"><span class="nav-number">1.1.2.</span> <span class="nav-text">.gitignore无效，不能过滤某些文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-git-pull-amp-amp-git-remote"><span class="nav-number">1.2.</span> <span class="nav-text">2.git pull && git remote</span></a></li></ol></li></ol></div>
             
 
           </div>
