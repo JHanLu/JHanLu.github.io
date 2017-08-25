@@ -263,6 +263,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/25/git-的一些用法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J Lu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="卢剑瀚的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/25/git-的一些用法总结/" itemprop="url">git 的一些用法总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T14:50:59+08:00">
+                2017-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="git-的一些用法总结"><a href="#git-的一些用法总结" class="headerlink" title="git 的一些用法总结"></a>git 的一些用法总结</h1><p>今天在使用GitHub时，又发现了一些平时比较少用到的命令，在这里做下总结</p>
+<h2 id="1-关于-gitnore-文件"><a href="#1-关于-gitnore-文件" class="headerlink" title="1.关于.gitnore 文件"></a>1.关于.gitnore 文件</h2><p>gitignore 配置文件用于配置不需要加入版本管理的文件，配置好该文件可以为我们的版本管理带来很大的便利，在本地可能有一个非常庞大的node_modules目录，在上传时非常耗时，因此我们只需上传package.json文件，再在需要时进行安装即可</p>
+<p>一个简单的.gitignore例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.gitignore</div><div class="line">node_modules</div><div class="line">package-lock.json</div></pre></td></tr></table></figure></p>
+<p>.gitignore无效，不能过滤某些文件</p>
+<p>现象：<br>在.gitignore添加file1文件，以过滤该文件，但是通过Git status查看仍显示file1文件的状态。</p>
+<p>原因：<br>在git库中已存在了这个文件，之前push提交过该文件。<br>.gitignore文件只对还没有加入版本管理的文件起作用，如果之前已经用git把这些文件纳入了版本库，就不起作用了</p>
+<p>解决：<br>需要在git库中删除该文件，并更新。<br>然后再次git status查看状态，file1文件不再显示状态。</p>
+<p>1.1 仅仅删除暂存区里的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git rm --cache 文件名</div></pre></td></tr></table></figure></p>
+<p>1.2 删除暂存区和工作区的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git rm -f 文件名</div></pre></td></tr></table></figure></p>
+<h2 id="2-git-pull-amp-amp-git-remote"><a href="#2-git-pull-amp-amp-git-remote" class="headerlink" title="2.git pull &amp;&amp; git remote"></a>2.git pull &amp;&amp; git remote</h2><p>git pull 常用例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</div></pre></td></tr></table></figure></p>
+<p>更简单的用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git pull origin master</div></pre></td></tr></table></figure></p>
+<p>git remote常用用法</p>
+<p>关联远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$&gt; git remote add [name] [url]</div></pre></td></tr></table></figure></p>
+<p>以上是遇到的问题，较为简单，以后遇到更多问题的话再来完善。</p>
+<p>未完待续。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/Redux-三大原则/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -712,7 +846,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -725,7 +859,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
